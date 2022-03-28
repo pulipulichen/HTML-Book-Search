@@ -1,0 +1,74 @@
+<form class="ui form">
+
+  <div class="ui segment">
+    <div class="two fields">
+      <div class="field">
+        <label>
+          Search Keyword
+        </label>
+        <input type="text" v-model="keyword"
+               v-on:keyup.enter="searchShoppingWebsite" />
+      </div>
+    </div>
+
+    <div class="tabs-environment">
+      <div class="field">
+        <label>
+          Websites
+          <a href="https://docs.google.com/document/d/1SjXOkvfveMMkp_ILwLUFdLTnbQiGRcMV4HkBjB3Qlj4/edit"
+             target="memo">
+            (shopping memo)
+          </a>
+        </label>
+
+        <div class="inline fields">
+          <div class="field" v-on:click="selectAllWebsites">
+            <button type="button"
+                    class="ui button"
+                    v-bind:class="{disabled: disabelSelectAllWebsites}">
+              Select All
+            </button>
+          </div>
+          <div class="field" v-on:click="deselectAllWebsites">
+            <button type="button"
+                    class="ui button"
+                    v-bind:class="{disabled: disabelDeselectAllWebsites}">
+              Deselect All
+            </button>
+          </div>
+
+          <div class="field" v-for="website in websitesList">
+            <div class="ui checkbox">
+              <input type="checkbox"
+                     v-bind:id="website"
+                     v-bind:value="website"
+                     v-model="websites">
+              <label v-bind:for="website">{{ website }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <button type="button"
+                class="ui fluid button"
+                v-on:click="searchShoppingWebsite">
+          SEARCH
+        </button>
+      </div>
+    </div>
+
+    <div class="one-tab-environment">
+      <div class="field" v-for="website in websitesList">
+        <a class="ui fluid button"
+           target="_blank"
+           v-bind:href="websiteURLMapping[website]"
+           v-on:click="setOpened(website)"
+           v-bind:class="{positive: !isOpened(website)}">
+          {{ website }}
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</form>
