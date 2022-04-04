@@ -11,13 +11,16 @@ let appMain = {
       'Kobo',
       'NLPI',
       'HyRead',
+      'HyReadTaipei',
       'Hami',
       'Kindle',
       'GoogleBook',
       'Tongli',
       'MyBook',
       'Pubu',
-      'BookWalker'
+      'BookWalker',
+      'iRead',
+      'InternetArchive'
     ]
     
     
@@ -79,6 +82,9 @@ let appMain = {
     computedHyReadURL () {
       return `https://ebook.hyread.com.tw/searchList.jsp?search_field=FullText&search_input=${this.encodeKeyword}`
     },
+    computedHyReadTaipeiURL () {
+      return `https://tpml.ebook.hyread.com.tw/searchList.jsp?search_field=FullText&search_input=${this.encodeKeyword}`
+    },
     computedHamiURL () {
       return `https://bookstore.emome.net/Searchs/finish/keyword:${this.encodeKeyword}`
     },
@@ -100,6 +106,12 @@ let appMain = {
     computedBookWalkerURL () {
       return `https://www.bookwalker.com.tw/search?series_display=1&w=${this.encodeKeyword}&m=0`
     },
+    computedIReadURL () {
+      return `https://www.airitibooks.com/Search/Results?SearchFieldList_obj=%5B%7B%22SearchString%22%3A%22${this.encodeKeyword}%22%2C%22SearchType%22%3A%22%25E6%2589%2580%25E6%259C%2589%25E6%25AC%2584%25E4%25BD%258D%22%2C%22SearchFieldCondition%22%3A%22AND%22%7D%5D&OutputKeyinSearchFieldList_obj=%5B%7B%22SearchString%22%3A%22${this.encodeKeyword}%22%2C%22SearchType%22%3A%22%25E6%2589%2580%25E6%259C%2589%25E6%25AC%2584%25E4%25BD%258D%22%2C%22SearchFieldCondition%22%3A%22AND%22%7D%5D&IsLibraryCollections=Y&toPage=`
+    },
+    computedInternetArchiveURL () {
+      return `https://archive.org/details/texts?query=${this.encodeKeyword}&`
+    },
     // https://ebook.nlpi.edu.tw/search?search_field=TI&search_input=library
     websiteURLMapping () {
       return {
@@ -111,6 +123,7 @@ let appMain = {
         'Kobo': this.computedKoboURL,
         'NLPI': this.computedNLPIURL,
         'HyRead': this.computedHyReadURL,
+        'HyReadTaipei': this.computedHyReadTaipeiURL,
         'Hami': this.computedHamiURL,
         'Kindle': this.computedKindleURL,
         'GoogleBook': this.computedGoogleBookURL,
@@ -118,6 +131,8 @@ let appMain = {
         'MyBook': this.computedMyBooksURL,
         'Pubu': this.computedPubuURL,
         'BookWalker': this.computedBookWalkerURL,
+        'iRead': this.computedIReadURL,
+        'InternetArchive': this.computedInternetArchiveURL
       }
     },
     urlList () {

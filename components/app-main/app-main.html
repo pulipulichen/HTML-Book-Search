@@ -37,15 +37,17 @@
             </button>
           </div>
 
-          <div class="field" v-for="website in websitesList">
-            <div class="ui checkbox">
-              <input type="checkbox"
-                     v-bind:id="website"
-                     v-bind:value="website"
-                     v-model="websites">
-              <label v-bind:for="website">{{ website }}</label>
+          <template v-for="(website, i) in websitesList">
+            <div class="field" >
+              <div class="ui checkbox">
+                <input type="checkbox"
+                       v-bind:id="website"
+                       v-bind:value="website"
+                       v-model="websites">
+                <label v-bind:for="website">{{ website }}</label>
+              </div>
             </div>
-          </div>
+          </template>
         </div>
       </div>
 
