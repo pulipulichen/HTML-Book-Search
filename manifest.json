@@ -1,11 +1,11 @@
 {
-  "name": "HTML-Shopping-Search",
-  "short_name": "ShoppingSearch",
+  "name": "HTML Book Search",
+  "short_name": "BookSearch",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#3498DB",
   "theme_color": "#2980B9",
-  "description": "Searching several shopping websites from a input form.",
+  "description": "Searching several book shopping websites from a form.",
   "icons": [{
    "src": "assets/favicon/book/android-icon-36x36.png",
    "sizes": "36x36",
