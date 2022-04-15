@@ -36,9 +36,9 @@
               Deselect All
             </button>
           </div>
-
+          <div class="field" >
           <template v-for="(website, i) in websitesList">
-            <div class="field" >
+            <div>
               <div class="ui checkbox">
                 <input type="checkbox"
                        v-bind:id="website"
@@ -48,6 +48,7 @@
               </div>
             </div>
           </template>
+          </div>
         </div>
       </div>
 

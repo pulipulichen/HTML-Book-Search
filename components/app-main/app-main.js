@@ -20,7 +20,13 @@ let appMain = {
       'Pubu',
       'BookWalker',
       'iRead',
-      'InternetArchive'
+      'InternetArchive',
+      'Haodoo',
+      'EpubBooks',
+      'FreeEbooksNet',
+      'TaiwanBook',
+      'ReadingUdn',
+      //'JiumoDiary'
     ]
     
     
@@ -112,6 +118,24 @@ let appMain = {
     computedInternetArchiveURL () {
       return `https://archive.org/details/texts?query=${this.encodeKeyword}&`
     },
+    computedHaodooURL () {
+      return `https://cse.google.com/cse?cx=partner-pub-4729470741573892%3Avcr86ky33h9&ie=UTF-8&q=${this.encodeKeyword}&sa=%E6%90%9C%E5%B0%8B`
+    },
+    computedEpubBooksURL () {
+      return `https://www.epubbooks.com/search?q=${this.encodeKeyword}`
+    },
+    computedFreeEbooksNetURL () {
+      return `https://www.free-ebooks.net/search/${this.encodeKeyword}`
+    },
+    computedTaiwanBookURL () {
+      return `https://taiwanebook.ncl.edu.tw/zh-tw/search/all/${this.encodeKeyword}/all/asc/grid/1`
+    },
+    computedReadingUdnURL () {
+      return `http://reading.udn.com/v2/search.do?k=${this.encodeKeyword}&pt=B#1,p,shelf`
+    },
+    // computedJiumoDiaryURL () {
+    //   return `http://reading.udn.com/v2/search.do?k=${this.encodeKeyword}&pt=B#1,p,shelf`
+    // },
     // https://ebook.nlpi.edu.tw/search?search_field=TI&search_input=library
     websiteURLMapping () {
       return {
@@ -132,8 +156,16 @@ let appMain = {
         'Pubu': this.computedPubuURL,
         'BookWalker': this.computedBookWalkerURL,
         'iRead': this.computedIReadURL,
-        'InternetArchive': this.computedInternetArchiveURL
+        'InternetArchive': this.computedInternetArchiveURL,
+        'Haodoo': this.computedHaodooURL,
+        'EpubBooks': this.computedEpubBooksURL,
+        'FreeEbooksNet': this.computedFreeEbooksNetURL,
+        'TaiwanBook': this.computedTaiwanBookURL,
+        'ReadingUdn': this.computedReadingUdnURL,
+        // 'JiumoDiary': this.computedJiumoDiaryURL,
+
       }
+
     },
     urlList () {
       let list = []
